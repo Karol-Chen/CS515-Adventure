@@ -76,7 +76,7 @@ class GameState:
             print(f"You go {direction}.")
             print(self.current_room.describe())
         else:
-            print(f"There's no way to go {direction}.")
+            print(f"There's no wa y to go {direction}.")
     
     def move_to_boss_room(self):
         win_info="To win the game, you need: "+", ".join(self.winning_condition)
@@ -137,21 +137,27 @@ def main():
         game_state = GameState(rooms)
 
         game_state.process_command("look")
-
         while True:
-            command = input("What would you like to do? ").strip().lower()
-            if command == "quit":
-                print("Goodbye!")
-                return
-            game_state.process_command(command)
-
-            if game_state.current_room.name == "Boss Room":
-                if game_state.move_to_boss_room(): 
-                    break 
-                else:
-                    print("Thank you for playing! Goodbye.")
+            try:
+                command = input("What would you like to do? ").strip().lower()
+                if command == "quit":
+                    print("Goodbye!")
                     return
+                game_state.process_command(command)
 
+                if game_state.current_room.name == "Boss Room":
+                    if game_state.move_to_boss_room(): 
+                        break 
+                    else:
+                        print("Thank you for playing! Goodbye.")
+                        return
+            except EOFError:
+                print("Use 'quit' to exit.")
+                continue
+            except KeyboardInterrupt:
+                print("\nGoodbye!")
+                return
+    
 if __name__ == "__main__":
     main()
 
