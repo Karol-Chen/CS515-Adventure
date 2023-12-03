@@ -39,7 +39,7 @@ class GameState:
         elif command == "help":
             self.display_help()
         elif action == "inventory":
-            print(f"Inventory:\n  {', '.join(self.inventory)}")
+            print(f"Inventory:\n  {' '.join(self.inventory)}")
         elif action == "go":
             if len(command_parts) > 1:
                 self.move_to_room(command_parts[1])
@@ -65,7 +65,7 @@ class GameState:
                 print(suc_room.desc)
                 if ask_yes_no("Do you really want to go to the Boss Room?"):
                     print("You are going to the Boss Room.")
-                    print(f"You go {direction}")
+                    print(f"You go {direction}.\n")
                     self.current_room = suc_room
                     # self.move_to_boss_room()
                     return
@@ -73,7 +73,7 @@ class GameState:
                     print("You stay in the current room")
                     return
             self.current_room = suc_room
-            print(f"You go {direction}.")
+            print(f"You go {direction}.\n")
             print(self.current_room.describe())
         else:
             print(f"There's no way to go {direction}.")
@@ -90,7 +90,7 @@ class GameState:
         if item_name in self.current_room.items:
             self.current_room.items.remove(item_name)
             self.inventory.append(item_name)
-            print(f"You pick up {item_name}.")
+            print(f"You pick up the {item_name}.")
         else:
             print(f"There's no {item_name} anywhere.")
     
