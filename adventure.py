@@ -83,7 +83,7 @@ class GameState:
         if(set(self.winning_condition).issubset(set(set(self.inventory)))):
             print("Congratulations! You win! ")
         else:
-            print(f"Sorry, you lost. {win_info}")
+            print(f"Sorry, you lose. {win_info}")
         return ask_yes_no("Would you like to start over?")
           
     def get_item(self, item_name):
