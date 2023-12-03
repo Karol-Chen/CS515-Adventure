@@ -1,7 +1,7 @@
 [
  {"name": "A white room", 
   "desc": "You are in a simple room with white walls.",
-  "exits": { "north": 1, "east": 3 }
+  "exits": { "north": 1, "east": 3,"south":5 }
  }
 ,
  {"name": "A blue room", 
@@ -12,12 +12,23 @@
  {"name": "A green room", 
   "desc": "You are in a simple room, with bright green walls.",
   "exits": { "west": 1, "south": 3 },
-  "items": []
+  "items": ["sword"]
  }
 ,
  {"name": "A red room",
   "desc": "This room is fancy. It's red!",
-  "exits": { "north": 2, "west": 0 },
+  "exits": { "north": 2, "west": 0 ,"south":4},
   "items": ["rose"]
+ }
+,
+ {"name":"A yellow room",
+    "desc":"This room is simple, with yellow walls.",
+    "exits":{"north":3,"west":5},
+    "items":["magic wand"]
+ }
+,
+ {"name":"Boss Room",
+    "desc":"This room is boss room. You will need sword and magic wand to fight the boss.",
+    "exits":{"north":0,"east":4}
  }
 ]
