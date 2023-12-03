@@ -47,7 +47,6 @@ class GameState:
                 print("Go where?")
         elif action == "get":
             if len(command_parts) > 1:
-                print(command_parts)
                 self.get_item(" ".join(command_parts[1:]))
             else:
                 print("Get what?")
