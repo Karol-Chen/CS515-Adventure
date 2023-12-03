@@ -39,7 +39,7 @@ class GameState:
         elif command == "help":
             self.display_help()
         elif action == "inventory":
-            print(f"Inventory: {', '.join(self.inventory)}")
+            print(f"Inventory:\n  {', '.join(self.inventory)}")
         elif action == "go":
             if len(command_parts) > 1:
                 self.move_to_room(command_parts[1])
@@ -49,7 +49,7 @@ class GameState:
             if len(command_parts) > 1:
                 self.get_item(" ".join(command_parts[1:]))
             else:
-                print("Get what?")
+                print("Sorry, you need to 'get' something.")
         elif action == "drop":
             if len(command_parts) > 1:
                 self.drop_item(command_parts[1])
@@ -76,7 +76,7 @@ class GameState:
             print(f"You go {direction}.")
             print(self.current_room.describe())
         else:
-            print(f"There's no wa y to go {direction}.")
+            print(f"There's no way to go {direction}.")
     
     def move_to_boss_room(self):
         win_info="To win the game, you need: "+", ".join(self.winning_condition)
@@ -90,9 +90,9 @@ class GameState:
         if item_name in self.current_room.items:
             self.current_room.items.remove(item_name)
             self.inventory.append(item_name)
-            print(f"You picked up {item_name}.")
+            print(f"You pick up {item_name}.")
         else:
-            print(f"There's no {item_name} here.")
+            print(f"There's no {item_name} anywhere.")
     
     def drop_item(self, item_name):
         if item_name in self.inventory:
