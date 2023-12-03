@@ -154,9 +154,9 @@ def main():
             except EOFError:
                 print("Use 'quit' to exit.")
                 continue
-            except KeyboardInterrupt:
-                print("\nGoodbye!")
-                return
+            # except KeyboardInterrupt:
+            #     print("\nGoodbye!")
+            #     return
     
 if __name__ == "__main__":
     main()
