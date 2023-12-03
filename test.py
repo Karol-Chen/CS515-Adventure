@@ -4,13 +4,13 @@ from adventure import Room,GameState
 class TestRoom(unittest.TestCase):
     def test_describe_with_items(self):
         room = Room("Test Room", "A room for testing.", {"north": 1}, ["key", "map"])
-        expected_description = ("\n> Test Room\n\nA room for testing.\n\n"
-                                "Items: key, map\n\nExits: north\n")
+        expected_description = ("> Test Room\n\nA room for testing.\n\n"
+                                "Items: key map\n\nExits: north\n")
         self.assertEqual(room.describe(), expected_description)
 
     def test_describe_without_items(self):
         room = Room("Empty Room", "An empty room.", {"south": 2})
-        expected_description = "\n> Empty Room\n\nAn empty room.\n\nExits: south\n"
+        expected_description = "> Empty Room\n\nAn empty room.\n\nExits: south\n"
         self.assertEqual(room.describe(), expected_description)
 
 class TestGameState(unittest.TestCase):

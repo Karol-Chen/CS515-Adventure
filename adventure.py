@@ -8,9 +8,9 @@ class Room:
         self.items = items if items else []
 
     def describe(self):
-        room_info = f"\n> {self.name}\n\n{self.desc}\n"
+        room_info = f"> {self.name}\n\n{self.desc}\n"
         if self.items:
-            room_info += "\nItems: " + ", ".join(self.items) + "\n"
+            room_info += "\nItems: " + " ".join(self.items) + "\n"
         room_info += "\nExits: " + ", ".join(self.exits.keys()) + "\n"
         return room_info
 
@@ -44,7 +44,7 @@ class GameState:
             if len(command_parts) > 1:
                 self.move_to_room(command_parts[1])
             else:
-                print("Go where?")
+                print("Sorry, you need to 'go' somewhere.")
         elif action == "get":
             if len(command_parts) > 1:
                 self.get_item(" ".join(command_parts[1:]))
@@ -76,7 +76,7 @@ class GameState:
             print(f"You go {direction}.")
             print(self.current_room.describe())
         else:
-            print("You can't go that way.")
+            print(f"There's no way to go {direction}.")
     
     def move_to_boss_room(self):
         win_info="To win the game, you need: "+", ".join(self.winning_condition)
