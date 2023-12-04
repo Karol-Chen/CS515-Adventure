@@ -39,7 +39,7 @@ class GameState:
         elif command == "help":
             self.display_help()
         elif action == "inventory":
-            print(f"Inventory:\n  {' '.join(self.inventory)}")
+            print(f"Inventory: \n  {' '.join(self.inventory)}")
         elif action == "go":
             if len(command_parts) > 1:
                 self.move_to_room(command_parts[1])
